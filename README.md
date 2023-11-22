@@ -28,25 +28,7 @@ Gene expression mesurment points are non-uniformely distributed across the brain
  
 
 ### Main steps of the project:
-
-Exploratory Data Analysis
-             |
-             |
-             |
-             v
-Elimination of useless measurments ---------> Selection of the strategy to associate 
-             |                                gene expression measurment points to 
-             |                                lipid abundance points
-             |                                       |
-             v                                       |
-Selection & training 202 models                      |
-(1 model per lipid) to predict lipid <---------------|
-abundance using gene expression data
-             |
-             |
-             |
-             v
-Model interpretation & analysis
+![alt text](2.png)
 
 
 

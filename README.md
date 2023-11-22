@@ -26,7 +26,7 @@ The measurement points for lipids are uniformly distributed across the brain sec
 
 ### Main Steps of the Project
 1. [List your main steps here.]
-![Main steps of the project](2.png)
+![Main steps of the project](images/2.png)
 
 ## Usage
 
@@ -40,7 +40,7 @@ The measurement points for lipids are uniformly distributed across the brain sec
 - tables
 
 ## Images
-<a id="points-image">![Points Measurement Image](1.png)</a>
+<a id="points-image">![Points Measurement Image](images/1.png)</a>
 *Figure 1. Points where lipid abundances (larger) and gene expression (smaller) were measured are depicted in this image. The y_ccf and z_ccf coordinates were utilized to generate this representation, while the x_ccf coordinate was disregarded. The size of the points corresponds to the measurement values, with larger points indicating lipid abundances and smaller points indicating gene expression levels.
 
 

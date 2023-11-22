@@ -25,7 +25,7 @@ Gene expression mesurment points are non-uniformely distributed across the brain
 
 ![alt text](1.png)
 ##### Figure 1. Dots where lipids abundances (larger) and gene expression (smaller) was measured. **y_ccf** and **z_ccf** coordinates were used to perform this image, **x_ccf** coordinate was ignored. \
- \ 
+ 
 
 ### Main steps of the project:
 

@@ -24,7 +24,13 @@ Lipid abundances are presented in columns 4 to 205, with each lipid having a ded
 The last three columns represent the aligned representation of each measured dot but are not pertinent to this project. 
 The measurement points for lipids are uniformly distributed across the brain section, as illustrated in [Figure 1](#points-image).
 
-### Library used:
+### Main Steps of the Project
+1. [List your main steps here.]
+![Main steps of the project](2.png)
+
+## Usage
+
+### Libraries:
 - pandas (version)
 - numpy (version)
 - matplotlib (version)
@@ -35,12 +41,7 @@ The measurement points for lipids are uniformly distributed across the brain sec
 
 ## Images
 <a id="points-image">![Points Measurement Image](1.png)</a>
-*Figure 1. Points where lipid abundances (larger) and gene expression (smaller) were measured are depicted in this image. The y_ccf and z_ccf coordinates were utilized to generate this representation, while the x_ccf coordinate was disregarded. The size of the points corresponds to the measurement values, with larger points indicating lipid abundances and smaller points indicating gene expression levels.*
- 
-
-### Main Steps of the Project
-1. [List your main steps here.]
-![Main steps of the project](2.png)
+*Figure 1. Points where lipid abundances (larger) and gene expression (smaller) were measured are depicted in this image. The y_ccf and z_ccf coordinates were utilized to generate this representation, while the x_ccf coordinate was disregarded. The size of the points corresponds to the measurement values, with larger points indicating lipid abundances and smaller points indicating gene expression levels.
 
 
 

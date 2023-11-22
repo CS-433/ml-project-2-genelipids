@@ -1,5 +1,29 @@
 # Predicting lipid distribution in a brain section from spatial gene expression
 
+## Project description
+
+### Brief description of the project
+This project focuses on predicting lipid distribution in a specific brain section using spatial gene expression data.
+
+### Dataset composition:
+#### Genes' expression 
+The dataset for gene expression comprises 3,741,416 rows and 596 columns. 
+After isolating only Section 12, there are 186,090 remaining rows.
+Each row corresponds to a specific point on mouse brain Section 12, where the expression levels of **500 genes** were measured.
+The columns **x_ccf**, **y_ccf**, and **z_ccf** denote the spatial coordinates of these points, sharing the same scale as the coordinates in the lipids' data. 
+Gene expression values are found in columns 46 to 545, while all other data in the gene expression dataset is irrelevant to this project.
+The distribution of gene expression measurement points across the brain section is non-uniform, as illustrated in [Figure 1](#points-image).
+
+#### Lipids' abundance
+The lipid dataset consists of 2,229,568 rows and 208 columns.
+After isolating only Section 12, the remaining rows amount to 94,747.
+Each row corresponds to a point on mouse brain Section 12, where the abundance of **202 lipids** was measured.
+The columns **x_ccf**, **y_ccf**, and **z_ccf** depict the spatial coordinates of the dot.
+Since we focus exclusively on Section 12, the x_ccf coordinate remains consistent for all measurements and is not relevant to this project. 
+Lipid abundances are presented in columns 4 to 205, with each lipid having a dedicated column.
+The last three columns represent the aligned representation of each measured dot but are not pertinent to this project. 
+The measurement points for lipids are uniformly distributed across the brain section, as illustrated in [Figure 1](#points-image).
+
 ### Library used:
 - pandas (version)
 - numpy (version)
@@ -8,28 +32,15 @@
 - scipy (version)
 - pycaret[full]
 - tables
-- ...
 
-### Dataset composition:
-#### Lipids
-The lipids dataset is composed by 2 229 568 rows and 208 columns. Once selected only the Section 12, the remaining rows are 94 747. \
-Each row represent the dot on the mouse brain Section 12 where the abundance of 202 lipids was measured. Columns **x_ccf**, **y_ccf** and **z_ccf** represent the spatial coordinates of the dot. Since we work only woth Section 12, the x_ccf coordinate is the same for all measurments and not relevant for this project. The abundances of lipids are presented in columns 4:205, each lipid having a dedicated column. \
-Last three columns represent the aligned representation of each measured dot and won't be relevant for this project. \
-Lipids mesurment points are uniformely distributed across the brain section (See **Figure 1**).
-
-#### Gene expression 
-The gene expression dataset is composed by 3 741 416 rows and 596 columns. Once selected only the Section 12, the remaining rows are 186 090. \
-Each row represent the dot on the mouse brain Section 12 where the expression level of **500** lipids was measured. Columns **x_ccf**, **y_ccf** and **z_ccf** represent the spatial coordinates of the dot and has the same scale as the same coordinates in lipids data.
-The expression values for each gene are presented in columns (columns 46:545). All other data presented in Gene expression dataset is not relevant for this project. \
-Gene expression mesurment points are non-uniformely distributed across the brain section (See **Figure 1**). 
-
-![alt text](1.png)
-##### Figure 1. Dots where lipids abundances (larger) and gene expression (smaller) was measured. **y_ccf** and **z_ccf** coordinates were used to perform this image, **x_ccf** coordinate was ignored. \
+## Images
+<a id="points-image">![Points Measurement Image](1.png)</a>
+*Figure 1. Points where lipid abundances (larger) and gene expression (smaller) were measured are depicted in this image. The y_ccf and z_ccf coordinates were utilized to generate this representation, while the x_ccf coordinate was disregarded. The size of the points corresponds to the measurement values, with larger points indicating lipid abundances and smaller points indicating gene expression levels.*
  
 
-### Main steps of the project:
-![alt text](2.png)
-
+### Main Steps of the Project
+1. [List your main steps here.]
+![Main steps of the project](2.png)
 
 
 

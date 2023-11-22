@@ -6,6 +6,8 @@
 - matplotlib (version)
 - seaborn (version)
 - scipy (version)
+- pycaret[full]
+- tables
 - ...
 
 ### Dataset composition:

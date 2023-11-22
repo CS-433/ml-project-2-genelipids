@@ -28,7 +28,7 @@ Columns x_ccf, y_ccf and z_ccf represent the spatial coordinates of the dot and 
 The expression values for each gene are presented in columns (columns 46:545). All other data presented in Gene expression dataset is not relevant for this project.
 Gene expression mesurment points are non-uniformely distributed across the brain section. 
 
-![alt text](./Images/1.pdf)
+![alt text](1.png)
 
 ### Main steps of the project:
 

@@ -13,10 +13,8 @@
 ### Dataset composition:
 #### Lipids
 The lipids dataset is composed by 2 229 568 rows and 208 columns. Once selected only the Section 12, the remaining rows are 94 747. \
-Each row represent the dot on the mouse brain Section 12 where the abundance of 202 lipids was measured.
-Columns x_ccf, y_ccf and z_ccf represent the spatial coordinates of the dot. Since we work only woth Section 12, the x_ccf coordinate is the same for all measurments and not relevant for this project.
-The abundances of lipids are presented in columns 4:205, each lipid having a dedicated column. 
-Last three columns represent the aligned representation of each measured dot and won't be relevant for this project.
+Each row represent the dot on the mouse brain Section 12 where the abundance of 202 lipids was measured.Columns x_ccf, y_ccf and z_ccf represent the spatial coordinates of the dot. Since we work only woth Section 12, the x_ccf coordinate is the same for all measurments and not relevant for this project. The abundances of lipids are presented in columns 4:205, each lipid having a dedicated column. 
+Last three columns represent the aligned representation of each measured dot and won't be relevant for this project. \
 Lipids mesurment points are uniformely distributed across the brain section.
 
 #### Gene expression 

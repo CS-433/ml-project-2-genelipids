@@ -1,4 +1,6 @@
 pandas
+pycaret[full]
+tables
 numpy
 matplotlib
 seaborn

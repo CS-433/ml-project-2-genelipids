@@ -30,7 +30,7 @@ The measurement points for lipids are uniformly distributed across the brain sec
 
 ### Main Steps of the Project
 1. [List your main steps here.]
-![Main steps of the project](images/2.png)
+<a id="plan">!![Main steps of the project](images/2.png)</a>
 
 ## Usage
 

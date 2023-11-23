@@ -29,8 +29,13 @@ The last three columns represent the aligned representation of each measured dot
 The measurement points for lipids are uniformly distributed across the brain section, as illustrated in [Figure 1](#points-image).
 
 ### Main Steps of the Project
-1. [List your main steps here.]
-<a id="plan">!![Main steps of the project](images/2.png)</a>
+1. Exploratory data analysis
+2. Data cleaning
+3. Predictors destribution
+4. ML models training
+5. Selection of final ML model
+6. Model interpretation &  analysis
+<a id="plan">![Main steps of the project](images/2.png)</a>
 
 ## Usage
 

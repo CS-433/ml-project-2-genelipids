@@ -2,8 +2,12 @@
 
 ## Project description
 
-### Brief description of the project
+### Brief description of the project (given by the professor)
 This project focuses on predicting lipid distribution in a specific brain section using spatial gene expression data.
+
+### Brief description of the project (understood by the performing team)
+Predict the abundance of the given lipid (202 lipids in total) on the brain section using the expression levels of 500 genes, measured in the proximity. The task thus boils down to regression since the values that have to be predicted are coming from the continous scale. \
+The main difficulty is that the spots where gene expression was measured are scattered non-uniformely across the brain section and thus points where we want to predict lipid abundance might have different number of gene expression spots in the proximity. 
 
 ### Dataset composition:
 #### Genes' expression 

@@ -18,6 +18,7 @@ def loading_lipids(linear_scale=True):
 
 
 def select_section(lipids, number=12):
+    """ Select data in the given section of the brain """
     section = lipids.loc[lipids['Section'] == number]
     return section
 

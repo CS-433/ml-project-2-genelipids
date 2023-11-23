@@ -1,13 +1,17 @@
 # Predicting lipid distribution in a brain section from spatial gene expression
 
 ## Project description
+This project aims to predict the abundance of 202 lipids on a specific brain section using spatial gene expression data. 
+The prediction is based on the expression levels of 500 genes.
 
-### Brief description of the project (given by the professor)
-This project focuses on predicting lipid distribution in a specific brain section using spatial gene expression data.
+### Task Overview
+The task is essentially a regression problem, as it involves predicting values on a continuous scale. 
+Specifically, we are predicting the abundance of a given lipid using the expression levels of nearby genes.
 
-### Brief description of the project (understood by the performing team)
-Predict the abundance of the given lipid (202 lipids in total) on the brain section using the expression levels of 500 genes, measured in the proximity. The task thus boils down to regression since the values that have to be predicted are coming from the continous scale. \
-The main difficulty is that the spots where gene expression was measured are scattered non-uniformely across the brain section and thus points where we want to predict lipid abundance might have different number of gene expression spots in the proximity. 
+### Challenge
+The main challenge lies in the non-uniform distribution of spots where gene expression was measured across the brain section. 
+Consequently, the points where we want to predict lipid abundance may vary in the number of gene expression spots in proximity. 
+Managing this variability is a key aspect of addressing the task effectively.
 
 ### Dataset composition:
 #### Genes' expression 
@@ -35,6 +39,7 @@ The measurement points for lipids are uniformly distributed across the brain sec
 4. ML models training
 5. Selection of final ML model
 6. Model interpretation &  analysis
+
 <a id="plan">![Main steps of the project](images/2.png)</a>
 
 ## Usage

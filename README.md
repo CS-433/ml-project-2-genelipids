@@ -1,5 +1,8 @@
 # Predicting lipid distribution in a brain section from spatial gene expression
 
+<a id="gif-image">![Animated representation](images/ezgif.com-optimize.gif)</a>
+
+
 ## Project description
 This project aims to predict the abundance of 202 lipids on a specific brain section using spatial gene expression data. 
 The prediction is based on the expression levels of 500 genes.
@@ -9,7 +12,7 @@ The task is essentially a regression problem, as it involves predicting values o
 Specifically, we are predicting the abundance of a given lipid using the expression levels of nearby genes.
 
 ### Challenge
-The main challenge lies in the non-uniform distribution of spots where gene expression was measured across the brain section. 
+The main challenge lies in the non-uniform distribution of spots where gene expression was measured across the brain section (see Figure 1). 
 Consequently, the points where we want to predict lipid abundance may vary in the number of gene expression spots in proximity. 
 Managing this variability is a key aspect of addressing the task effectively.
 
@@ -58,7 +61,7 @@ The measurement points for lipids are uniformly distributed across the brain sec
 ### Points Measurement Image
 <a id="points-image">![Points Measurement Image](images/points_measure.png)</a>
 
-*Figure 1. Points where lipid abundances (larger) and gene expression (smaller) were measured are depicted in this image. The y_ccf and z_ccf coordinates were utilized to generate this representation, while the x_ccf coordinate was disregarded. The size of the points corresponds to the measurement values, with larger points indicating lipid abundances and smaller points indicating gene expression levels.*
+*Figure 1. Points where ipid abundances (larger, red) and gene expression (smaller, blue) were measured. The y_ccf and z_ccf coordinates from `[5, 6]` segment were utilized to generate this representation, while the x_ccf coordinate was disregarded.*
 
 
 

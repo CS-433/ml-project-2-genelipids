@@ -1,4 +1,4 @@
-<a id="gif-image">![Animated representation](images/ezgif.com-optimise.gif)</a>
+<a id="gif-image">![Animated representation](images/ezgif.com-optimize.gif)</a>
 
 # Predicting lipid distribution in a brain section from spatial gene expression
 

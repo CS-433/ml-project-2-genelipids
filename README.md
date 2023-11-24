@@ -1,6 +1,7 @@
+# Predicting lipid distribution in a brain section from spatial gene expression
+
 <a id="gif-image">![Animated representation](images/ezgif.com-optimize.gif)</a>
 
-# Predicting lipid distribution in a brain section from spatial gene expression
 
 ## Project description
 This project aims to predict the abundance of 202 lipids on a specific brain section using spatial gene expression data. 

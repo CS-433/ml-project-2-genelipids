@@ -60,7 +60,7 @@ The measurement points for lipids are uniformly distributed across the brain sec
 ### Points Measurement Image
 <a id="points-image">![Points Measurement Image](images/points_measure.png)</a>
 
-*Figure 1. Points where ipid abundances (larger, red) and gene expression (smaller, blue) were measured. The y_ccf and z_ccf coordinates \in \left[5, 6\right] segment were utilized to generate this representation, while the x_ccf coordinate was disregarded.*
+*Figure 1. Points where ipid abundances (larger, red) and gene expression (smaller, blue) were measured. The y_ccf and z_ccf coordinates $\in$ \left[5, 6\right] segment were utilized to generate this representation, while the x_ccf coordinate was disregarded.*
 
 
 

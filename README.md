@@ -1,3 +1,5 @@
+<a id="gif-image">![Animated representation](images/ezgif.com-crop.gif)</a>
+
 # Predicting lipid distribution in a brain section from spatial gene expression
 
 ## Project description

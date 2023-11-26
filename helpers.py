@@ -6,7 +6,7 @@ lipid_path = 'data/lba_all_pixels_fully_abamapped11062023.h5'
 gene_path = 'data/cell_filtered_w500genes.h5'
 
 
-def loading_lipids(linear_scale=True):
+def load_lipids(linear_scale=True) -> DataFrame:
     """
     Load lipids dataset
 
@@ -17,7 +17,7 @@ def loading_lipids(linear_scale=True):
     :return: lipids dataset
     """
     # Loading the dataset
-    lipids = pd.read_hdf(lipid_path)
+    lipids = pd.read_hdf(lipid_path, key="df")
 
     # Fill in background pixels
     lipids = lipids.fillna(-9.21)
@@ -29,16 +29,17 @@ def loading_lipids(linear_scale=True):
     return lipids
 
 
-def loading_genes():
+def load_genes() -> DataFrame:
     """
     Load genes dataset
 
     Parameters:
     :return: gene dataset
     """
-    cells = pd.read_hdf(gene_path, 'df')
+    cells = pd.read_hdf(gene_path)
 
     return cells
+
 
 
 def select_section_lipids(lipids, number=12):

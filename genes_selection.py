@@ -2,14 +2,13 @@ from typing import Callable
 
 import pandas as pd
 import numpy as np
-from pandas import DataFrame
 from scipy.spatial import cKDTree
 from scipy.stats import norm
 
 
-def aggregate_closest_cells(cells: DataFrame, distances: np.ndarray, closest_indices: np.ndarray, aggregation_function: Callable):
+def aggregate_closest_cells(cells: pd.DataFrame, distances: np.ndarray, closest_indices: np.ndarray, aggregation_function: Callable):
     # Build a dataframe containing the aggregate for
-    closest_cells = DataFrame(columns=cells.columns[46:-50])
+    closest_cells = pd.DataFrame(columns=cells.columns[46:-50])
     for i in range(closest_indices.shape[0]):
         aggregate = aggregation_function(cells.iloc[closest_indices[i], 46:-50], distances[i])
         closest_cells.loc[i] = aggregate
@@ -17,7 +16,7 @@ def aggregate_closest_cells(cells: DataFrame, distances: np.ndarray, closest_ind
     return closest_cells
 
 
-def find_k_closest(k: int, cells: DataFrame, lipids: DataFrame, aggregation_function: Callable):
+def find_k_closest(k: int, cells: pd.DataFrame, lipids: pd.DataFrame, aggregation_function: Callable):
     # Create a KDTree for the cells
     cells_coords = cells[['y_ccf', 'z_ccf']].values
     cells_kdtree = cKDTree(cells_coords)
@@ -28,7 +27,7 @@ def find_k_closest(k: int, cells: DataFrame, lipids: DataFrame, aggregation_func
     return aggregate_closest_cells(cells, distances, indices, aggregation_function)
 
 
-def find_radius_closest(radius: float, cells: DataFrame, lipids: DataFrame, aggregation_function: Callable):
+def find_radius_closest(radius: float, cells: pd.DataFrame, lipids: pd.DataFrame, aggregation_function: Callable):
     # Create a KDTree for the cells
     cells_coords = cells[['y_ccf', 'z_ccf']].values
     cells_kdtree = cKDTree(cells_coords)
@@ -41,15 +40,15 @@ def find_radius_closest(radius: float, cells: DataFrame, lipids: DataFrame, aggr
     return aggregate_closest_cells(cells, distances, indices, aggregation_function)
 
 
-def cell_max(cells: DataFrame, distances: np.ndarray):
+def cell_max(cells: pd.DataFrame, distances: np.ndarray):
     return cells.max()
 
 
-def cell_average(cells: DataFrame, distances: np.ndarray):
+def cell_average(cells: pd.DataFrame, distances: np.ndarray):
     return cells.mean()
 
 
-def cell_weighted_average(cells: DataFrame, distances: np.ndarray):
+def cell_weighted_average(cells: pd.DataFrame, distances: np.ndarray):
     # Weights based on distance, with a penalty for distances greater than the average closest distance
     weights = norm.pdf(distances, 0, np.std(distances))
     weighted_data = cells * weights[:, np.newaxis]

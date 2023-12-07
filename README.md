@@ -56,6 +56,8 @@ The measurement points for lipids are uniformly distributed across the brain sec
 - pycaret[full]
 - tables
 - sklearn
+- tqdm
+- pytorch
 
 ## Images
 ### Points Measurement Image

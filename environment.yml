@@ -4,8 +4,10 @@ channels:
   - conda-forge
   - pytorch
 dependencies:
+  - python=3.11
   - pandas
   - pycaret[full]
+  - scikit-plot
   - pytables
   - numpy
   - matplotlib
@@ -13,7 +15,7 @@ dependencies:
   - scipy
   - scikit-learn
   - tqdm
-  - cpuonly  # Replace this with cudatoolkit=x.x if you have nvidia gpu
+  - cpuonly # Replace this with cudatoolkit=x.x (personnaly used 12.1) if you have an Nvidia GPU
   - pytorch
   - torchvision
   - torchaudio

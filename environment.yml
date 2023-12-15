@@ -1,0 +1,19 @@
+name: ml-project-2-genelipids
+channels:
+  - defaults
+  - conda-forge
+  - pytorch
+dependencies:
+  - pandas
+  - pycaret[full]
+  - pytables
+  - numpy
+  - matplotlib
+  - seaborn
+  - scipy
+  - scikit-learn
+  - tqdm
+  - cpuonly  # Replace this with cudatoolkit=x.x if you have nvidia gpu
+  - pytorch
+  - torchvision
+  - torchaudio

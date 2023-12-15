@@ -47,6 +47,15 @@ The measurement points for lipids are uniformly distributed across the brain sec
 
 ## Usage
 
+### Environment
+You can use the environment.yml file to create a conda environment with all the necessary libraries.
+
+```bash
+conda env create -f environment.yml
+```
+
+It is highly recommended to have an Nvidia GPU and change the line in the environment.yml file to the appropriate CUDA version for your GPU. Otherwise, it will default to CPU which will be much slower.
+
 ### Libraries:
 - pandas (version)
 - numpy (version)
@@ -54,6 +63,7 @@ The measurement points for lipids are uniformly distributed across the brain sec
 - seaborn (version)
 - scipy (version)
 - pycaret[full]
+- scikit-plot
 - tables
 - sklearn
 - tqdm

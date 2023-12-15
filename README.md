@@ -4,7 +4,7 @@
 
 
 ## Project description
-This project aims to predict the abundance of 202 lipids on a specific brain section using spatial gene expression data. 
+This project aims to predict the abundance of 202 lipids in a specific brain section using spatial gene expression data. 
 The prediction is based on the expression levels of 500 genes.
 
 ### Task Overview
@@ -20,7 +20,7 @@ Managing this variability is a key aspect of addressing the task effectively.
 #### Genes' expression 
 The dataset for gene expression comprises 3,741,416 rows and 596 columns. 
 After isolating only Section 12, there are 186,090 remaining rows.
-Each row corresponds to a specific point on mouse brain Section 12, where the expression levels of **500 genes** were measured.
+Each row corresponds to a specific point in mouse brain Section 12, where the expression levels of **500 genes** were measured.
 The columns **x_ccf**, **y_ccf**, and **z_ccf** denote the spatial coordinates of these points, sharing the same scale as the coordinates in the lipids' data. 
 Gene expression values are found in columns 46 to 545, while all other data in the gene expression dataset is irrelevant to this project.
 The distribution of gene expression measurement points across the brain section is non-uniform, as illustrated in [Figure 1](#points-image).
@@ -38,23 +38,29 @@ The measurement points for lipids are uniformly distributed across the brain sec
 ### Main Steps of the Project
 1. Exploratory data analysis
 2. Data cleaning
-3. Predictors destribution
+3. Predictors distribution
 4. ML models training
 5. Selection of final ML model
-6. Model interpretation &  analysis
+6. Model interpretation & and analysis
 
 <a id="plan">![Main steps of the project](images/project_steps.png)</a>
 
 ## Usage
 
 ### Environment
-You can use the environment.yml file to create a conda environment with all the necessary libraries.
+You can use the environment.yml file to create a conda environment with all the necessary libraries. (CPU Version)
 
 ```bash
 conda env create -f environment.yml
 ```
 
-It is highly recommended to have an Nvidia GPU and change the line in the environment.yml file to the appropriate CUDA version for your GPU. Otherwise, it will default to CPU which will be much slower.
+But if you have an NVIDIA GPU, you can use the environment-gpu.yml file to create a conda environment with all the necessary libraries. (GPU Version)
+
+```bash
+conda env create -f environment-gpu.yml
+```
+
+You should use CUDA version 12.1!
 
 ### Libraries:
 - pandas (version)
@@ -73,7 +79,7 @@ It is highly recommended to have an Nvidia GPU and change the line in the enviro
 ### Points Measurement Image
 <a id="points-image">![Points Measurement Image](images/points_measure.png)</a>
 
-*Figure 1. Points where ipid abundances (larger, red) and gene expression (smaller, blue) were measured. The y_ccf and z_ccf coordinates from `[5, 6]` segment were utilized to generate this representation, while the x_ccf coordinate was disregarded.*
+*Figure 1. Points where lipid abundances (larger, red) and gene expression (smaller, blue) were measured. The y_ccf and z_ccf coordinates from `[5, 6]` segment were utilized to generate this representation, while the x_ccf coordinate was disregarded.*
 
 
 

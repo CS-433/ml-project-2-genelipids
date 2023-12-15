@@ -1,4 +1,4 @@
-name: ml-project-2-genelipids
+name: ml-project-2-genelipids-cpu
 channels:
   - defaults
   - conda-forge
@@ -15,7 +15,7 @@ dependencies:
   - scipy
   - scikit-learn
   - tqdm
-  - cpuonly # Replace this with cudatoolkit=x.x (personnaly used 12.1) if you have an Nvidia GPU
+  - cpuonly
   - pytorch
   - torchvision
   - torchaudio

@@ -1,0 +1,37 @@
+name: ml-project2-genelipids-gpu
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip=23.3
+  - pandas
+  - numpy
+  - matplotlib
+  - seaborn
+  - scipy
+  - pytorch=2.1.1=py3.11_cuda12.1_cudnn8_0
+  - pytorch-cuda=12.1=hde6ce7c_5
+  - pytorch-mutex=1.0=cuda
+  - cuda-cccl=12.3.101=0
+  - cuda-cudart=12.1.105=0
+  - cuda-cudart-dev=12.1.105=0
+  - cuda-cupti=12.1.105=0
+  - cuda-libraries=12.1.0=0
+  - cuda-libraries-dev=12.1.0=0
+  - cuda-nvrtc=12.1.105=0
+  - cuda-nvrtc-dev=12.1.105=0
+  - cuda-nvtx=12.1.105=0
+  - cuda-opencl=12.3.101=0
+  - cuda-opencl-dev=12.3.101=0
+  - cuda-profiler-api=12.3.101=0
+  - cuda-runtime=12.1.0=0
+  - torchvision
+  - torchaudio
+  - tqdm
+  - pip:
+    - pycaret[full]
+    - scikit-learn
+    - scikit-plot

@@ -6,3 +6,5 @@ matplotlib
 seaborn
 scipy
 sklearn
+tqdm
+pytorch

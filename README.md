@@ -4,7 +4,7 @@
 
 
 ## Project description
-This project aims to predict the abundance of 202 lipids on a specific brain section using spatial gene expression data. 
+This project aims to predict the abundance of 156 lipids on a specific brain section using spatial gene expression data. 
 The prediction is based on the expression levels of 500 genes.
 
 ### Task Overview
@@ -41,7 +41,7 @@ The measurement points for lipids are uniformly distributed across the brain sec
 3. Predictors destribution
 4. ML models training
 5. Selection of final ML model
-6. Model interpretation &  analysis
+6. Model interpretation and analysis
 
 <a id="plan">![Main steps of the project](images/project_steps.png)</a>
 
@@ -56,12 +56,14 @@ The measurement points for lipids are uniformly distributed across the brain sec
 - pycaret[full]
 - tables
 - sklearn
+- tensorflow
+- keras
 
 ## Images
 ### Points Measurement Image
 <a id="points-image">![Points Measurement Image](images/points_measure.png)</a>
 
-*Figure 1. Points where ipid abundances (larger, red) and gene expression (smaller, blue) were measured. The y_ccf and z_ccf coordinates from `[5, 6]` segment were utilized to generate this representation, while the x_ccf coordinate was disregarded.*
+*Figure 1. Points where lipid abundances (larger, red) and gene expression (smaller, blue) were measured. The y_ccf and z_ccf coordinates from `[5, 6]` segment were utilized to generate this representation, while the x_ccf coordinate was disregarded.*
 
 
 

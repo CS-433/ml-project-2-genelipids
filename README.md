@@ -2,6 +2,9 @@
 
 <a id="gif-image">![Animated representation](images/ezgif.com-optimize.gif)</a>
 
+**Group**:
+**Supervisors**:
+**ML Project
 
 ## Project description
 This project aims to predict the abundance of 202 lipids in a specific brain section using spatial gene expression data. 

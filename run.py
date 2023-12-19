@@ -126,14 +126,18 @@ def train_and_evaluate_models(features_df : pd.DataFrame, target_df : pd.DataFra
         
         metrics = pull()
         
-        r2 = metrics.loc[:, 'R2']
+        r2 = metrics.loc[metrics['Model'] == 'CatBoost Regressor', 'R2'].iloc[0]
         
         feature_importance_df = pd.DataFrame({'Feature': model.feature_names_, 'Importance': model.feature_importances_})
         feature_importance_df = feature_importance_df.sort_values(by='Importance', ascending=False)
         top_features = feature_importance_df.to_dict(orient='records')
 
         results_df = results_df.append({'Lipid': lipid_name, 'R2': r2, 'Top_Features': top_features}, ignore_index=True)
+        
 
+    print(f'Mean R2: {results_df["R2"].mean()}')
+    print(f'Median R2: {results_df["R2"].median()}')
+    
     return results_df
 
 def main():

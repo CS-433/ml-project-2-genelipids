@@ -59,7 +59,7 @@ def logarithmic_weight(dists : torch.Tensor) -> torch.Tensor:
     adjusted_dists = dists + 1e-6
     return -torch.log(adjusted_dists)
 
-def aggregate_data(lipids_coords : np.ndarray, genes_kdtree : cKDTree, genes_data : pd.DataFrame) -> torch.Tensor:
+def aggregate_data(lipids_coords : np.ndarray, genes_kdtree : cKDTree, genes_data : pd.DataFrame, neighbors_num : int) -> torch.Tensor:
     """
     Aggregate gene data based on lipid coordinates.
 
@@ -71,7 +71,7 @@ def aggregate_data(lipids_coords : np.ndarray, genes_kdtree : cKDTree, genes_dat
     Returns:
     Tensor: Aggregated gene data tensor.
     """
-    distances, indices = genes_kdtree.query(lipids_coords, k=1000)
+    distances, indices = genes_kdtree.query(lipids_coords, k=neighbors_num)
     distances = torch.tensor(distances).to(device)
     indices = torch.tensor(indices, dtype=torch.long).to(device)
     weighted_sum = torch.zeros((len(lipids_coords), genes_data.shape[1]), device=device)
@@ -149,7 +149,7 @@ def main():
     lipids_coords = lipids_data[['y_ccf', 'z_ccf']].values
     genes_tensor = torch.tensor(genes_data.iloc[:, 46:-50].values).to(device)
 
-    aggregated_gene_data = aggregate_data(lipids_coords, genes_kdtree, genes_tensor)
+    aggregated_gene_data = aggregate_data(lipids_coords, genes_kdtree, genes_tensor, neighbors_num=1000)
     aggregated_gene_data = pd.DataFrame(aggregated_gene_data.to('cpu').numpy(), columns=genes_data.iloc[:, 46:-50].columns)
     features_df, target_df = prepare_data_for_modeling(aggregated_gene_data, lipids_data)
 

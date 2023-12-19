@@ -3,7 +3,7 @@ import torch
 import os
 from scipy.spatial import cKDTree
 from sklearn.model_selection import train_test_split
-from pycaret.regression import setup, create_model, pull, predict_model
+from pycaret.regression import *
 from tqdm import tqdm
 import numpy as np
 
@@ -101,44 +101,50 @@ def prepare_data_for_modeling(aggregated_gene_data : pd.DataFrame, lipids_data :
     lipids_data = lipids_data.iloc[:, 13:]
     return aggregated_gene_data, lipids_data
 
-def train_and_evaluate_models(features_df : pd.DataFrame, target_df : pd.DataFrame) -> pd.DataFrame:
+def train_and_evaluate_models(features_df: pd.DataFrame, target_df: pd.DataFrame, use_gpu: bool) -> None:
     """
-    Train and evaluate models for each lipid.
+    Train and evaluate models for each lipid and save individual performance data.
 
     Parameters:
     features_df (DataFrame): Feature dataframe.
     target_df (DataFrame): Target dataframe.
-
-    Returns:
-    DataFrame: A dataframe with the results of the modeling.
+    use_gpu (bool): Whether to use GPU for training.
     """
+    # Split data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(features_df, target_df, test_size=0.3, random_state=42)
-    results_df = pd.DataFrame(columns=['Lipid', 'R2', 'Top_Features'])
 
     for i in tqdm(range(len(y_train.columns)), desc='Processing Lipids'):
         lipid_name = y_train.columns[i]
         train_data = pd.concat([X_train, y_train.iloc[:, i]], axis=1)
         test_data = pd.concat([X_test, y_test.iloc[:, i]], axis=1)
-        
+
+        # Set up PyCaret
         setup(data=train_data, target=y_train.columns[i], test_data=test_data, fold=5, session_id=42, use_gpu=use_gpu, preprocess=False, n_jobs=-1, fold_shuffle=True)
+        
+        # Create and evaluate the model
         model = create_model('catboost')
         predict_model(model)
-        
         metrics = pull()
         
+        # Extract R2 and feature importances
         r2 = metrics.loc[metrics['Model'] == 'CatBoost Regressor', 'R2'].iloc[0]
-        
         feature_importance_df = pd.DataFrame({'Feature': model.feature_names_, 'Importance': model.feature_importances_})
         feature_importance_df = feature_importance_df.sort_values(by='Importance', ascending=False)
-        top_features = feature_importance_df.to_dict(orient='records')
-
-        results_df = results_df.append({'Lipid': lipid_name, 'R2': r2, 'Top_Features': top_features}, ignore_index=True)
         
+        # Prepare data for saving
+        summary_df = pd.DataFrame({'Lipid': [lipid_name], 'R2': [r2]})
+        with open(f'results/models_performances/lipid_{i}.csv', 'w') as f:
+            f.write('# Summary\n')
+            summary_df.to_csv(f, index=False)
+            f.write('\n# Feature Importances\n')
+            feature_importance_df.to_csv(f, index=False)
 
-    print(f'Mean R2: {results_df["R2"].mean()}')
-    print(f'Median R2: {results_df["R2"].median()}')
-    
-    return results_df
+        # Finalize and save the model
+        model = finalize_model(model)
+        save_model(model, f'results/models/lipid_{i}')
+
+    # Optional: Print overall metrics
+    print(f'Individual model results saved in "results/models" directory.')
 
 def main():
     lipid_path = 'data/section12/lipids_section_12.parquet'
@@ -154,9 +160,8 @@ def main():
     features_df, target_df = prepare_data_for_modeling(aggregated_gene_data, lipids_data)
 
     # Can be spammy due to a LightGBM issue when using GPU
-    results_df = train_and_evaluate_models(features_df, target_df)
-    results_df.to_csv('results.csv')
-    print("Modeling completed. Results saved to 'results.csv'.")
+    train_and_evaluate_models(features_df, target_df, use_gpu=use_gpu)
+    print("Modeling completed. Results saved to 'results' folder.")
 
 if __name__ == "__main__":
     main()

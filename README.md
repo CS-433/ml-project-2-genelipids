@@ -51,12 +51,13 @@ The measurement points for lipids are uniformly distributed across the brain sec
 ## Usage
 
 ### Environment
-You can use the environment.yml file to create a conda environment with all the necessary libraries. (CPU Version)
+You can use the environment.yml file to create a conda environment with all the necessary libraries. (CPU Version) We recommend using Miniconda to create the environment.
 
 ```bash
-conda env create -f environment.yml
+conda env create -f environment-cpu.yml
 ```
-
+The CPU version is a fallback option if you don't have an NVIDIA GPU, since the 
+computational time is significantly longer.
 But if you have an NVIDIA GPU, you can use the environment-gpu.yml file to create a conda environment with all the necessary libraries. (GPU Version)
 
 ```bash

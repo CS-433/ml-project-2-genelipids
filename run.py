@@ -120,7 +120,7 @@ def train_and_evaluate_models(features_df : pd.DataFrame, target_df : pd.DataFra
         train_data = pd.concat([X_train, y_train.iloc[:, i]], axis=1)
         test_data = pd.concat([X_test, y_test.iloc[:, i]], axis=1)
         
-        setup(data=train_data, target=y_train.columns[i], test_data=test_data, fold=5, session_id=42, use_gpu=use_gpu, preprocess=False, fold_shuffle=True)
+        setup(data=train_data, target=y_train.columns[i], test_data=test_data, fold=5, session_id=42, use_gpu=use_gpu, preprocess=False, n_jobs=-1, fold_shuffle=True)
         model = create_model('catboost')
         predict_model(model)
         

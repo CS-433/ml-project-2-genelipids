@@ -1,21 +1,19 @@
 name: ml-project-2-genelipids-cpu
 channels:
-  - defaults
-  - conda-forge
   - pytorch
+  - conda-forge
+  - defaults
 dependencies:
   - python=3.11
-  - pandas
-  - pycaret[full]
-  - scikit-plot
-  - pytables
-  - numpy
+  - pip=23.3
   - matplotlib
   - seaborn
   - scipy
-  - scikit-learn
   - tqdm
   - cpuonly
-  - pytorch
   - torchvision
   - torchaudio
+  - pip:
+    - pycaret[full]
+    - scikit-learn
+    - scikit-plot

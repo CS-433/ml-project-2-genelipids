@@ -86,7 +86,7 @@ def aggregate_data(lipids_coords : np.ndarray, genes_kdtree : cKDTree, genes_dat
 
     return weighted_sum
 
-def prepare_data_for_modeling(aggregated_gene_data : pd.DataFrame, lipids_data : pd.DataFrame):
+def prepare_data_for_modeling(aggregated_gene_data : pd.DataFrame, lipids_data : pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
     """
     Prepare feature and target dataframes for modeling.
 

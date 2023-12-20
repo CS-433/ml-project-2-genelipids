@@ -155,7 +155,8 @@ def main():
     # Select only the lipids with a standard deviation > 0.0001
     lipids_values = lipids_data.iloc[:, 13:]
     std_dict = lipids_values[lipids_values>0.00011].std(axis = 0).to_dict()
-    low_imp_lipids = [i for i in std_dict.keys() if (std_dict[i]<0.0001)]
+    low_imp_lipids = [i for i in std_dict.keys() if (std_dict[i]<0.00011)]
+    print(f'Number of lipids with low importance: {len(low_imp_lipids)}')
     
     # Impute the low imp lipids by removing them
     lipids_data = lipids_data.drop(low_imp_lipids, axis=1)

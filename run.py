@@ -87,6 +87,7 @@ def aggregate_data(lipids_coords : np.ndarray, genes_kdtree : cKDTree, genes_dat
     lipids_coords (array): Coordinates of the lipids.
     genes_kdtree (cKDTree): KDTree for the gene data.
     genes_data (Tensor): Gene data as a PyTorch tensor.
+    neighbors_num (int): Number of neighbors to consider for aggregation.
 
     Returns:
     Tensor: Aggregated gene data tensor.

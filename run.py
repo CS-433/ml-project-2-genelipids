@@ -164,8 +164,7 @@ def train_and_evaluate_models(features_df: pd.DataFrame, target_df: pd.DataFrame
         save_model(model, f'results/models/lipid_{i}')
 
     # Save aggregated results to a single file
-    with open('results/models_performances/aggregated_results.csv', 'w') as f:
-        f.write(aggregated_results.to_csv(index=False))
+    aggregated_results.to_csv('results/models_performances/aggregated_results.csv', index=False)
         
     # Print mean and median R2 values
     print(f'Mean R2: {aggregated_results["R2"].mean()}')

@@ -59,6 +59,26 @@ def logarithmic_weight(dists : torch.Tensor) -> torch.Tensor:
     adjusted_dists = dists + 1e-6
     return -torch.log(adjusted_dists)
 
+def impute_low_importance_lipids(lipids_data: pd.DataFrame, threshold: float = 0.00011) -> pd.DataFrame:
+    """
+    Imputes low importance lipids from the lipids dataset based on a given standard deviation threshold.
+    
+    Args:
+    lipids_data (pd.DataFrame): DataFrame containing lipid data.
+    threshold (float, optional): The threshold for standard deviation below which lipids are considered of low importance. Defaults to 0.00011.
+
+    Returns:
+    pd.DataFrame: The imputed DataFrame with low importance lipids removed.
+    """
+    # Select only the lipids with a standard deviation > threshold
+    lipids_values = lipids_data.iloc[:, 13:]
+    std_dict = lipids_values[lipids_values > threshold].std(axis=0).to_dict()
+    low_imp_lipids = [lipid for lipid, std in std_dict.items() if std < threshold]
+    
+    # Impute the low importance lipids by removing them
+    imputed_data = lipids_data.drop(columns=low_imp_lipids)
+    return imputed_data
+
 def aggregate_data(lipids_coords : np.ndarray, genes_kdtree : cKDTree, genes_data : pd.DataFrame, neighbors_num : int) -> torch.Tensor:
     """
     Aggregate gene data based on lipid coordinates.
@@ -151,15 +171,7 @@ def main():
     gene_path = 'data/section12/genes_section_12.parquet'
 
     lipids_data, genes_data = load_data(lipid_path, gene_path)
-    
-    # Select only the lipids with a standard deviation > 0.0001
-    lipids_values = lipids_data.iloc[:, 13:]
-    std_dict = lipids_values[lipids_values>0.00011].std(axis = 0).to_dict()
-    low_imp_lipids = [i for i in std_dict.keys() if (std_dict[i]<0.00011)]
-    print(f'Number of lipids with low importance: {len(low_imp_lipids)}')
-    
-    # Impute the low imp lipids by removing them
-    lipids_data = lipids_data.drop(low_imp_lipids, axis=1)
+    lipids_data = impute_low_importance_lipids(lipids_data)
     
     genes_kdtree = create_kdtree(genes_data)
     lipids_coords = lipids_data[['y_ccf', 'z_ccf']].values

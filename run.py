@@ -151,6 +151,15 @@ def main():
     gene_path = 'data/section12/genes_section_12.parquet'
 
     lipids_data, genes_data = load_data(lipid_path, gene_path)
+    
+    # Select only the lipids with a standard deviation > 0.0001
+    lipids_values = lipids_data.iloc[:, 13:]
+    std_dict = lipids_values[lipids_values>0.00011].std(axis = 0).to_dict()
+    low_imp_lipids = [i for i in std_dict.keys() if (std_dict[i]<0.0001)]
+    
+    # Impute the low imp lipids by removing them
+    lipids_data = lipids_data.drop(low_imp_lipids, axis=1)
+    
     genes_kdtree = create_kdtree(genes_data)
     lipids_coords = lipids_data[['y_ccf', 'z_ccf']].values
     genes_tensor = torch.tensor(genes_data.iloc[:, 46:-50].values).to(device)
@@ -158,7 +167,7 @@ def main():
     aggregated_gene_data = aggregate_data(lipids_coords, genes_kdtree, genes_tensor, neighbors_num=1000)
     aggregated_gene_data = pd.DataFrame(aggregated_gene_data.to('cpu').numpy(), columns=genes_data.iloc[:, 46:-50].columns)
     features_df, target_df = prepare_data_for_modeling(aggregated_gene_data, lipids_data)
-
+    
     # Can be spammy due to a LightGBM issue when using GPU
     train_and_evaluate_models(features_df, target_df, use_gpu=use_gpu)
     print("Modeling completed. Results saved to 'results' folder.")

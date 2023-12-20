@@ -29,14 +29,9 @@ Gene expression values are found in columns 46 to 545, while all other data in t
 The distribution of gene expression measurement points across the brain section is non-uniform, as illustrated in [Figure 1](#points-image).
 
 #### Lipids' abundance
-The lipid dataset consists of 2,229,568 rows and 208 columns.
-After isolating only Section 12, the remaining rows amount to 94,747.
-Each row corresponds to a point on mouse brain Section 12, where the abundance of **202 lipids** was measured.
-The columns **x_ccf**, **y_ccf**, and **z_ccf** depict the spatial coordinates of the dot.
+In this study our objective is to accurately predict the abundance of 156 brain lipids, each measured in 89,395 points across the mouse Mus musculus brain.
 Since we focus exclusively on Section 12, the x_ccf coordinate remains consistent for all measurements and is not relevant to this project. 
-Lipid abundances are presented in columns 4 to 205, with each lipid having a dedicated column.
-The last three columns represent the aligned representation of each measured dot but are not pertinent to this project. 
-The measurement points for lipids are uniformly distributed across the brain section, as illustrated in [Figure 1](#points-image).
+Each lipid has a dedicated column. The measurement points for lipids are uniformly distributed across the brain section, as illustrated in [Figure 1](#points-image).
 
 ### Main Steps of the Project
 1. Exploratory data analysis
@@ -64,20 +59,40 @@ But if you have an NVIDIA GPU, you can use the environment-gpu.yml file to creat
 conda env create -f environment-gpu.yml
 ```
 
+For the MLP model, you can use environment-MLP.yml file to create a conda environment with all the necessary libraries to run the training of the model.
+```bash
+conda env create -f environment-MLP.yml
+```
+
 You should use CUDA version 12.1!
 
 ### Libraries:
-- pandas (version)
-- numpy (version)
-- matplotlib (version)
-- seaborn (version)
-- scipy (version)
+- pandas
+- numpy
+- matplotlib
+- seaborn
+- scipy
 - pycaret[full]
 - scikit-plot
 - tables
 - sklearn
 - tqdm
 - pytorch
+- keras
+- tensorflow
+- tensorflow_addons
+
+### Folders
+- data: contains the data used for the analysis
+- documents: contains the documents
+- images: contains the images for the README
+- results: contains the results of the different models
+
+### Files
+- ExploreLinearModels.ipynb
+- models.ipynb
+- neural_network.ipynb: contains the code for the training and the evaluation of the MLP model
+
 
 ## Images
 ### Points Measurement Image

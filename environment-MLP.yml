@@ -1,0 +1,12 @@
+name: ml-project-neural-network
+dependencies:
+  - python=3.11
+  - pip=23.3
+  - pip:
+    - tensorflow_addons
+    - jupyter
+    - pandas
+    - pyarrow
+    - tensorflow
+    - keras
+    - scikit-learn

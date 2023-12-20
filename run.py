@@ -124,7 +124,7 @@ def prepare_data_for_modeling(aggregated_gene_data : pd.DataFrame, lipids_data :
 
 def train_and_evaluate_models(features_df: pd.DataFrame, target_df: pd.DataFrame, use_gpu: bool) -> None:
     """
-    Train and evaluate models for each lipid and save individual performance data.
+    Train and evaluate models for each lipid and save aggregated performance data into a single file.
 
     Parameters:
     features_df (DataFrame): Feature dataframe.
@@ -133,6 +133,9 @@ def train_and_evaluate_models(features_df: pd.DataFrame, target_df: pd.DataFrame
     """
     # Split data into training and testing sets
     X_train, X_test, y_train, y_test = train_test_split(features_df, target_df, test_size=0.3, random_state=42)
+
+    # Initialize an empty DataFrame for storing aggregated results
+    aggregated_results = pd.DataFrame()
 
     for i in tqdm(range(len(y_train.columns)), desc='Processing Lipids'):
         lipid_name = y_train.columns[i]
@@ -151,21 +154,25 @@ def train_and_evaluate_models(features_df: pd.DataFrame, target_df: pd.DataFrame
         r2 = metrics.loc[metrics['Model'] == 'CatBoost Regressor', 'R2'].iloc[0]
         feature_importance_df = pd.DataFrame({'Feature': model.feature_names_, 'Importance': model.feature_importances_})
         feature_importance_df = feature_importance_df.sort_values(by='Importance', ascending=False)
-        
-        # Prepare data for saving
-        summary_df = pd.DataFrame({'Lipid': [lipid_name], 'R2': [r2]})
-        with open(f'results/models_performances/lipid_{i}.csv', 'w') as f:
-            f.write('# Summary\n')
-            summary_df.to_csv(f, index=False)
-            f.write('\n# Feature Importances\n')
-            feature_importance_df.to_csv(f, index=False)
 
-        # Finalize and save the model
+        # Prepare data for the aggregated file
+        summary = {'Lipid Number': i, 'Lipid': lipid_name, 'R2': r2, 'Feature Importances': feature_importance_df.to_dict(orient='records')}
+        aggregated_results = aggregated_results.append(summary, ignore_index=True)
+
+        # Finalize and save the model (optional)
         model = finalize_model(model)
         save_model(model, f'results/models/lipid_{i}')
 
-    # Optional: Print overall metrics
-    print(f'Individual model results saved in "results/models" directory.')
+    # Save aggregated results to a single file
+    with open('results/models_performances/aggregated_results.csv', 'w') as f:
+        f.write(aggregated_results.to_csv(index=False))
+        
+    # Print mean and median R2 values
+    print(f'Mean R2: {aggregated_results["R2"].mean()}')
+    print(f'Median R2: {aggregated_results["R2"].median()}')
+
+    # Save aggregated results to a single file
+    print(f'Aggregated model results saved in "results/models_performances/aggregated_results.csv"')
 
 def main():
     lipid_path = 'data/section12/lipids_section_12.parquet'

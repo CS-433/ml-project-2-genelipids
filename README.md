@@ -27,13 +27,13 @@ Managing this variability is a key aspect of addressing the task effectively.
 #### Genes' expression 
 The dataset for gene expression comprises 3,741,416 rows and 596 columns. 
 After isolating only Section 12, there are 186,090 remaining rows.
-Each row corresponds to a specific point (nucleus) in mouse brain Section 12, where the expression levels of **500 genes** were measured.
+Each row corresponds to a specific point (nucleus) in mouse (_Mus musculus_) brain Section 12, where the expression levels of **500 genes** were measured.
 The columns **x_ccf**, **y_ccf**, and **z_ccf** denote the spatial coordinates of these nuclei, sharing the same scale as the coordinates in the lipids' data. 
 Gene expression values are found in columns 46 to 545, while all other data in the gene expression dataset is irrelevant to this project.
 The distribution of gene expression measurement points across the brain section is non-uniform, as illustrated in [Figure 1](#points-image).
 
 #### Lipids' abundance
-In this study our objective is to accurately predict the abundance of 156 brain lipids, each measured in 89,395 points across the mouse _Mus musculus_ brain.
+In this study our objective is to accurately predict the abundance of 156 brain lipids, each measured in 89,395 points across the _Mus musculus_ brain.
 Since we focus exclusively on Section 12, the x_ccf coordinate remains consistent for all measurements and is not relevant to this project. 
 Each lipid has a dedicated column. The measurement points for lipids are uniformly distributed across the brain section, as illustrated in [Figure 1](#points-image).
 

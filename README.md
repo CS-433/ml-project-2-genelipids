@@ -27,8 +27,8 @@ Managing this variability is a key aspect of addressing the task effectively.
 #### Genes' expression 
 The dataset for gene expression comprises 3,741,416 rows and 596 columns. 
 After isolating only Section 12, there are 186,090 remaining rows.
-Each row corresponds to a specific point in mouse brain Section 12, where the expression levels of **500 genes** were measured.
-The columns **x_ccf**, **y_ccf**, and **z_ccf** denote the spatial coordinates of these points, sharing the same scale as the coordinates in the lipids' data. 
+Each row corresponds to a specific point in mouse brain (nucleus) Section 12, where the expression levels of **500 genes** were measured.
+The columns **x_ccf**, **y_ccf**, and **z_ccf** denote the spatial coordinates of these nuclei, sharing the same scale as the coordinates in the lipids' data. 
 Gene expression values are found in columns 46 to 545, while all other data in the gene expression dataset is irrelevant to this project.
 The distribution of gene expression measurement points across the brain section is non-uniform, as illustrated in [Figure 1](#points-image).
 
@@ -44,8 +44,6 @@ Each lipid has a dedicated column. The measurement points for lipids are uniform
 4. ML models training
 5. Selection of final ML model
 6. Model interpretation & and analysis
-
-<a id="plan">![Main steps of the project](images/project_steps.png)</a>
 
 ## Usage
 
@@ -94,7 +92,6 @@ You should use CUDA version 12.1!
 - results: Contains the results of the different models.
 
 ### Files
-- ExploreLinearModels.ipynb: Jupyter Notebook file for exploring linear models.
 - FigureGenerator.ipynb: A notebook that generates images for the report and Appendix.
 - models.ipynb: Contains the different averaging techniques tried and in general the tools to iterate over the models.
 - neural_network.ipynb: Contains the code for the training and evaluation of the MLP (Multi-Layer Perceptron) model.

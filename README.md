@@ -96,7 +96,7 @@ You should use CUDA version 12.1!
 ### Files
 - ExploreLinearModels.ipynb: Jupyter Notebook file for exploring linear models.
 - figure_generator.ipynb: A notebook that generates images for the report and Appendix.
-- models.ipynb:
+- models.ipynb: Contains the different averaging techniques tried and in general the tools to iterate over the models.
 - neural_network.ipynb: Contains the code for the training and evaluation of the MLP (Multi-Layer Perceptron) model.
 
 

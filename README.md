@@ -86,7 +86,7 @@ You should use CUDA version 12.1!
 
 ## Organisation
 ### Folders
-- data: Contains the data used for the analysis.
+- data: Contains the data used for the analysis. In this case it is empty and a link to the data will be provided.
 - documents: Contains the documents (project description, Appendix).
 - images: Contains the images for the README, report, and Appendix.
 - results: Contains the results of the different models.

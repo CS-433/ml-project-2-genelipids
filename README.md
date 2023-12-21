@@ -1,13 +1,17 @@
-# Predicting lipid distribution in a brain section from spatial gene expression
+# Predicting lipid abundance in a murine brain section from spatial gene expression
 
 <a id="gif-image">![Animated representation](images/ezgif.com-optimize.gif)</a>
 
-**Group**:
-**Supervisors**:
-**ML Project
+## ML4Science
+
+**Group**: Lusine Khachatryan, Jules Perrin, Viola Renne  
+**Tutors**: Luca Fusar Bassini, Halima Hannah Schede  
+**Supervisor**: Gioele La Manno  
+**Laboratory**: Laboratory of Brain Development and Biological Data Science, EPFL, Switzerland  
+**ML Project**: ML4Science  
 
 ## Project description
-This project aims to predict the abundance of 202 lipids in a specific brain section using spatial gene expression data. 
+This project aims to predict the abundance of 156 lipids in a specific brain section using spatial gene expression data. 
 The prediction is based on the expression levels of 500 genes.
 
 ### Task Overview
@@ -82,16 +86,18 @@ You should use CUDA version 12.1!
 - tensorflow
 - tensorflow_addons
 
+## Organisation
 ### Folders
-- data: contains the data used for the analysis
-- documents: contains the documents
-- images: contains the images for the README
-- results: contains the results of the different models
+- data: Contains the data used for the analysis.
+- documents: Contains the documents (project description, Appendix).
+- images: Contains the images for the README, report, and Appendix.
+- results: Contains the results of the different models.
 
 ### Files
-- ExploreLinearModels.ipynb
-- models.ipynb
-- neural_network.ipynb: contains the code for the training and the evaluation of the MLP model
+- ExploreLinearModels.ipynb: Jupyter Notebook file for exploring linear models.
+- figure_generator.ipynb: A notebook that generates images for the report and Appendix.
+- models.ipynb:
+- neural_network.ipynb: Contains the code for the training and evaluation of the MLP (Multi-Layer Perceptron) model.
 
 
 ## Images

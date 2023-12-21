@@ -92,6 +92,7 @@ You should use CUDA version 12.1!
 - results: Contains the results of the different models.
 
 ### Files
+- run.py: Main file to repeat the analysis on the selected model (CatBoost), using the negative logarithm decay with 1000 neighbors and on the selected subset of lipids.
 - FigureGenerator.ipynb: A notebook that generates images for the report and Appendix.
 - models.ipynb: Contains the different averaging techniques tried and in general the tools to iterate over the models.
 - neural_network.ipynb: Contains the code for the training and evaluation of the MLP (Multi-Layer Perceptron) model.
